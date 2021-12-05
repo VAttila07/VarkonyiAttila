@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,19 @@ namespace Feladatnyílvántartó_VárkonyiAttila
     /// </summary>
     public partial class MainWindow : Window
     {
+        //CheckBox chBox = new CheckBox();
+        //private const string textFile = "Feladatok.txt";  
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //chBox.Content = fText.Text;
+            //fLista.Items.Add(chBox);
+
+
         }
     }
 }
