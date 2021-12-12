@@ -46,9 +46,22 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             }
         }
 
+        
         private void bePipalt(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            CheckBox box = new CheckBox();
+            if (box.IsChecked == true)
+            {
+                box.FontStyle = FontStyles.Italic;
+                box.Foreground = Brushes.Gray;
+                box.IsEnabled = false;
+            }
+            else
+            { 
+                box.FontStyle = FontStyles.Italic;
+                box.Foreground = Brushes.Gray;
+                box.IsEnabled = false;
+            }
         }
     }
 }
