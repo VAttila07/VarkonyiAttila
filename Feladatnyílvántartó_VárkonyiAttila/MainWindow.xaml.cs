@@ -75,9 +75,32 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
         }
 
+        CheckBox utolsoElem = null;
         private void kijelolesValtozott(object sender, SelectionChangedEventArgs e)
         {
+            CheckBox selectedItem = (CheckBox)fLista.SelectedItem;
+            if (selectedItem == null) return;
+            utolsoElem = selectedItem;
+            fText.Text = selectedItem.Content.ToString();
+        }
 
+        private void torles(object sender, RoutedEventArgs e)
+        {
+            if (fLista.SelectedItem == null)
+                return;
+
+            CheckBox töröltListaElem = (CheckBox)fLista.SelectedItem;
+            toroltekListaja.Add(töröltListaElem);
+            ujChboxok.Remove(töröltListaElem);
+
+            elemekFrissitese(fLista, ujChboxok);
+            elemekFrissitese(tElemek, toroltekListaja);
+        }
+
+        private void vissszaAll(object sender, RoutedEventArgs e)
+        {
+            if (fLista.SelectedItem == null)
+                return;
         }
     }
 }

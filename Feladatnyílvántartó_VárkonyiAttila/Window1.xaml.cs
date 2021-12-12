@@ -23,5 +23,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         {
             InitializeComponent();
         }
+
+
     }
 }

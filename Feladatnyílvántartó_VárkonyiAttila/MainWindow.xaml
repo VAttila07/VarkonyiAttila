@@ -8,12 +8,12 @@
         Title="Feladatok nyílvántartása" Height="450" Width="600">
     <Grid>
         <Label Content="Feladatok listája" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="fLista" HorizontalAlignment="Left" Height="193" Margin="10,36,0,0" VerticalAlignment="Top" Width="397"/>
+        <ListBox x:Name="fLista" HorizontalAlignment="Left" Height="193" Margin="10,36,0,0" VerticalAlignment="Top" Width="397" SelectionChanged="kijelolesValtozott"/>
         <Label Content="Feladat szövege:" HorizontalAlignment="Left" Margin="407,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="fText" HorizontalAlignment="Left" Height="23" Margin="412,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
         <Button Content="Új hozzáadása" HorizontalAlignment="Left" Margin="412,64,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="Button_Click"/>
-        <Button Content="Kijelölt feladat módosítása" HorizontalAlignment="Left" Margin="412,93,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
-        <Button Content="Kijelölt feladat törlése" HorizontalAlignment="Left" Margin="412,122,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
+        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="412,93,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
+        <Button Content="Kijelölt feladat törlése" HorizontalAlignment="Left" Margin="412,122,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="torles"/>
         <Button Content="Kijelölt feladat visszaállítása" HorizontalAlignment="Left" Margin="412,260,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
         <Button Content="Kijelölt feladat végleg törlése" HorizontalAlignment="Left" Margin="412,289,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
         <Label Content="Törölt elemek" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top"/>
