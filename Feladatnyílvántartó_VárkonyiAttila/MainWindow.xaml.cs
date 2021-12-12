@@ -120,5 +120,11 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
             elemekFrissitese(tElemek, toroltekListaja);
         }
+
+        private void BezarEsElment(object sender, ExitEventArgs e)
+        {
+            string[] Feladatok = new string[fLista.Items.Count];
+            string[] toroltFeladatok = new string[tElemek.Items.Count];
+        }
     }
 }

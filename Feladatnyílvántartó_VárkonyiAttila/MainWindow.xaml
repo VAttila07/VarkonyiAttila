@@ -15,7 +15,7 @@
         <Button Content="Módosítás" HorizontalAlignment="Left" Margin="412,93,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
         <Button Content="Kijelölt feladat törlése" HorizontalAlignment="Left" Margin="412,122,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="torles"/>
         <Button Content="Kijelölt feladat visszaállítása" HorizontalAlignment="Left" Margin="412,260,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="vissszaAll"/>
-        <Button Content="Kijelölt feladat végleg törlése" HorizontalAlignment="Left" Margin="412,289,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
+        <Button Content="Kijelölt feladat végleg törlése" HorizontalAlignment="Left" Margin="412,289,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="veglegT"/>
         <Label Content="Törölt elemek" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="tElemek"  HorizontalAlignment="Left" Height="149" Margin="10,260,0,0" VerticalAlignment="Top" Width="397"/>
         <Label Content="Várkonyi Attila @ 2021" HorizontalAlignment="Left" Margin="452,383,0,0" VerticalAlignment="Top" IsEnabled="False"/>
