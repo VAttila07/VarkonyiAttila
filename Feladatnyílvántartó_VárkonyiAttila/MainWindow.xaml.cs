@@ -56,13 +56,11 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             {
                 box.FontStyle = FontStyles.Italic;
                 box.Foreground = Brushes.Gray;
-                box.IsEnabled = false;
             }
             else
             { 
                 box.FontStyle = FontStyles.Italic;
                 box.Foreground = Brushes.Gray;
-                box.IsEnabled = true;
             }
 
             elemekFrissitese(fLista, ujChboxok);
