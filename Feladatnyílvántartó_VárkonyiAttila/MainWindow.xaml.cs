@@ -101,6 +101,13 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         {
             if (fLista.SelectedItem == null)
                 return;
+
+            CheckBox visszaAllit = (CheckBox)fLista.SelectedItem;
+            toroltekListaja.Remove(visszaAllit);
+            ujChboxok.Add(visszaAllit);
+
+            elemekFrissitese(fLista, ujChboxok);
+            elemekFrissitese(tElemek, toroltekListaja);
         }
     }
 }
