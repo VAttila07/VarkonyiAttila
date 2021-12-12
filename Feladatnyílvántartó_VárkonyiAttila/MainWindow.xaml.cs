@@ -21,19 +21,34 @@ namespace Feladatnyílvántartó_VárkonyiAttila
     /// </summary>
     public partial class MainWindow : Window
     {
-        //CheckBox chBox = new CheckBox();
-        //private const string textFile = "Feladatok.txt";  
+        private List<CheckBox> ujChboxok = new List<CheckBox>();
+        private List<CheckBox> toroltekListaja = new List<CheckBox>();
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void elemekFrissitese(ListBox listak, List<CheckBox> lElemei)
+        {
+            listak.ItemsSource = lElemei;
+            listak.Items.Refresh();
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //chBox.Content = fText.Text;
-            //fLista.Items.Add(chBox);
+            if (fText != null || fText.Text !=" ")
+            {
+                CheckBox chGeneral = new CheckBox();
+                chGeneral.IsChecked = false;
+                chGeneral.Content = fText.Text;
+                ujChboxok.Add(chGeneral);
+                chGeneral.Checked += new RoutedEventHandler(bePipalt);
+                chGeneral.Unchecked += new RoutedEventHandler(bePipalt);
+            }
+        }
 
-
+        private void bePipalt(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
