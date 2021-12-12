@@ -156,7 +156,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 string[] nev = Feladatok[i].Split(';');
                 CheckBox ujboliLetrehozas = new CheckBox();
 
-                ujboliLetrehozas.Content = nev[i];
+                ujboliLetrehozas.Content = nev[0];
                 if(nev[1] == "True")
                 {
                     ujboliLetrehozas.IsChecked = true;
@@ -177,10 +177,49 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
                 chBoxok.Add(ujboliLetrehozas);
                 ujChboxok.Add(ujboliLetrehozas);
-
-                elemekFrissitese(fLista, ujChboxok);
             }
+
             fLista.ItemsSource = chBoxok;
+
+
+
+            if (!File.Exists("töröltFeladatok.txt."))
+                return;
+            string[] toroltFeladatok = File.ReadAllLines("töröltFeladatok.txt");
+            List<CheckBox> toroltChBoxok = new List<CheckBox>();
+
+            for (int i = 0; i < toroltFeladatok.Length; i++)
+            {
+                string[] nev = toroltFeladatok[i].Split(';');
+                CheckBox toroltUj = new CheckBox();
+
+                toroltUj.Content = nev[0];
+                if (nev[1] == "True")
+                {
+                    toroltUj.IsChecked = true;
+                }
+                toroltUj.Checked += new RoutedEventHandler(bePipalt);
+                toroltUj.Unchecked += new RoutedEventHandler(bePipalt);
+
+                if (toroltUj.IsChecked == true)
+                {
+                    toroltUj.FontStyle = FontStyles.Italic;
+                    toroltUj.Foreground = Brushes.Gray;
+                }
+                else
+                {
+                    toroltUj.FontStyle = FontStyles.Italic;
+                    toroltUj.Foreground = Brushes.Gray;
+                }
+
+                toroltChBoxok.Add(toroltUj);
+                toroltekListaja.Add(toroltUj);
+            }
+            tElemek.ItemsSource = toroltChBoxok;
+
+
+            elemekFrissitese(fLista, ujChboxok);
+            elemekFrissitese(tElemek, toroltekListaja);
         }
 
     }
