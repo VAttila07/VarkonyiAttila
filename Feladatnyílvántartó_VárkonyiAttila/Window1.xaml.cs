@@ -25,6 +25,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         public Window1()
         {
             InitializeComponent();
+            mentes1 = new MainWindow();
             Betoltes();
         }
 
@@ -88,13 +89,12 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             }
 
             File.WriteAllLines("Feladatok.txt", Feladatok);
-            mentes1 = new MainWindow();
-            mentGomb.Click += vege;
         }
 
-        void vege(object sender, EventArgs e)
+        private void Bezaras(object sender, RoutedEventArgs e)
         {
             mentes1.Betoltes2();
+            this.Close();
         }
     }
 }

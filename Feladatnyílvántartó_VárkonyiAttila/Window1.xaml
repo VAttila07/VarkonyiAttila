@@ -12,7 +12,6 @@
         <Label Content="A kijelölt feledat új szövege:" HorizontalAlignment="Left" Margin="214,23,0,0" VerticalAlignment="Top"/>
         <Button Content="Kijelölt feladat átnevezése" HorizontalAlignment="Left" Margin="238,108,0,0" VerticalAlignment="Top" Width="162" Click="atnevezes"/>
         <Button Name="mentGomb" Content="Módisítások mentése" HorizontalAlignment="Left" Margin="238,201,0,0" VerticalAlignment="Top" Width="162" Click="mentes"/>
-
-
+        <Button Content="Kesz" HorizontalAlignment="Left" Margin="238,272,0,0" VerticalAlignment="Top" Width="162" Click="Bezaras"/>
     </Grid>
 </Window>
