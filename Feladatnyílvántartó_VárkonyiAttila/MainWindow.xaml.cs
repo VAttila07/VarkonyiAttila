@@ -35,7 +35,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (fText != null || fText.Text !=" ")
+            if (fText != null)
             {
                 CheckBox chGeneral = new CheckBox();
                 chGeneral.IsChecked = false;
@@ -44,12 +44,14 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 chGeneral.Checked += new RoutedEventHandler(bePipalt);
                 chGeneral.Unchecked += new RoutedEventHandler(bePipalt);
             }
+
+            elemekFrissitese(fLista, ujChboxok);
         }
 
         
         private void bePipalt(object sender, RoutedEventArgs e)
         {
-            CheckBox box = new CheckBox();
+            CheckBox box = (CheckBox)sender;
             if (box.IsChecked == true)
             {
                 box.FontStyle = FontStyles.Italic;
@@ -60,8 +62,10 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             { 
                 box.FontStyle = FontStyles.Italic;
                 box.Foreground = Brushes.Gray;
-                box.IsEnabled = false;
+                box.IsEnabled = true;
             }
+
+            elemekFrissitese(fLista, ujChboxok);
         }
     }
 }
