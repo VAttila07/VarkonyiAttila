@@ -100,7 +100,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
         private void vissszaAll(object sender, RoutedEventArgs e)
         {
-            if (fLista.SelectedItem == null)
+            if (tElemek.SelectedItem == null)
                 return;
 
             CheckBox visszaAllit = (CheckBox)tElemek.SelectedItem;
@@ -113,7 +113,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
         private void veglegT(object sender, RoutedEventArgs e)
         {
-            if (fLista.SelectedItem == null)
+            if (tElemek.SelectedItem == null)
                 return;
 
             CheckBox veglegTorol = (CheckBox)tElemek.SelectedItem;
