@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -21,8 +22,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<CheckBox> ujChboxok = new List<CheckBox>();
-        private List<CheckBox> toroltekListaja = new List<CheckBox>();
+        public List<CheckBox> ujChboxok = new List<CheckBox>();
+        public List<CheckBox> toroltekListaja = new List<CheckBox>();
         public MainWindow()
         {
             InitializeComponent();
@@ -48,10 +49,21 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             else
                 return;
 
+            string[] Feladatok = new string[fLista.Items.Count];
+            string[] toroltFeladatok = new string[tElemek.Items.Count];
+
+            for (int i = 0; i < Feladatok.Length; i++)
+            {
+                CheckBox box = (CheckBox)fLista.Items[i];
+                Feladatok[i] = box.Content.ToString() + ";" + box.IsChecked;
+            }
+
+            File.WriteAllLines("Feladatok.txt", Feladatok);
+
             elemekFrissitese(fLista, ujChboxok);
         }
 
-        
+
         private void bePipalt(object sender, RoutedEventArgs e)
         {
             CheckBox box = (CheckBox)sender;
@@ -61,7 +73,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 box.Foreground = Brushes.Gray;
             }
             else
-            { 
+            {
                 box.FontStyle = FontStyles.Normal;
                 box.Foreground = Brushes.Black;
             }
@@ -73,7 +85,6 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         {
             var newWindow = new Window1();
             newWindow.Show();
-
         }
 
         CheckBox utolsoElem = null;
@@ -158,7 +169,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 CheckBox ujboliLetrehozas = new CheckBox();
 
                 ujboliLetrehozas.Content = nev[0];
-                if(nev[1] == "True")
+                if (nev[1] == "True")
                 {
                     ujboliLetrehozas.IsChecked = true;
                 }
@@ -222,6 +233,5 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             elemekFrissitese(fLista, ujChboxok);
             elemekFrissitese(tElemek, toroltekListaja);
         }
-
     }
 }

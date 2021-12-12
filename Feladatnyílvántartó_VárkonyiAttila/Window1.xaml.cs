@@ -20,6 +20,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
     /// </summary>
     public partial class Window1 : Window
     {
+        public static List<CheckBox> ujChbox = new List<CheckBox>();
         public Window1()
         {
             InitializeComponent();
@@ -28,28 +29,27 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
         private void Betoltes()
         {
+            if (!File.Exists("Feladatok.txt."))
+                return;
+            string[] Feladatok = File.ReadAllLines("Feladatok.txt");
+            List<CheckBox> chBoxok = new List<CheckBox>();
+
+            for (int i = 0; i < Feladatok.Length; i++)
             {
-                if (!File.Exists("Feladatok.txt."))
-                    return;
-                string[] Feladatok = File.ReadAllLines("Feladatok.txt");
-                List<CheckBox> chBoxok = new List<CheckBox>();
+                string[] nev = Feladatok[i].Split(';');
+                CheckBox ujboliLetrehozas = new CheckBox();
 
-                for (int i = 0; i < Feladatok.Length; i++)
+                ujboliLetrehozas.Content = nev[0];
+                if (nev[1] == "True")
                 {
-                    string[] nev = Feladatok[i].Split(';');
-                    CheckBox ujboliLetrehozas = new CheckBox();
-
-                    ujboliLetrehozas.Content = nev[0];
-                    if (nev[1] == "True")
-                    {
-                        ujboliLetrehozas.IsChecked = true;
-                    }
-
-                    chBoxok.Add(ujboliLetrehozas);
+                    ujboliLetrehozas.IsChecked = true;
                 }
 
-                modositasiLista.ItemsSource = chBoxok;
+                chBoxok.Add(ujboliLetrehozas);
+                ujChbox.Add(ujboliLetrehozas);
             }
+
+            modositasiLista.ItemsSource = chBoxok;
         }
     }
 }

@@ -12,7 +12,7 @@
         <Label Content="Feladat szövege:" HorizontalAlignment="Left" Margin="407,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="fText" HorizontalAlignment="Left" Height="23" Margin="412,36,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="170"/>
         <Button Content="Új hozzáadása" HorizontalAlignment="Left" Margin="412,64,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="Button_Click"/>
-        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="412,93,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
+        <Button x:Name="button1" Content="Módosítás" HorizontalAlignment="Left" Margin="412,93,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="fModositasa"/>
         <Button Content="Kijelölt feladat törlése" HorizontalAlignment="Left" Margin="412,122,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="torles"/>
         <Button Content="Kijelölt feladat visszaállítása" HorizontalAlignment="Left" Margin="412,260,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="vissszaAll"/>
         <Button Content="Kijelölt feladat végleg törlése" HorizontalAlignment="Left" Margin="412,289,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="veglegT"/>
