@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,33 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         public Window1()
         {
             InitializeComponent();
+            Betoltes();
         }
 
+        private void Betoltes()
+        {
+            {
+                if (!File.Exists("Feladatok.txt."))
+                    return;
+                string[] Feladatok = File.ReadAllLines("Feladatok.txt");
+                List<CheckBox> chBoxok = new List<CheckBox>();
 
+                for (int i = 0; i < Feladatok.Length; i++)
+                {
+                    string[] nev = Feladatok[i].Split(';');
+                    CheckBox ujboliLetrehozas = new CheckBox();
+
+                    ujboliLetrehozas.Content = nev[0];
+                    if (nev[1] == "True")
+                    {
+                        ujboliLetrehozas.IsChecked = true;
+                    }
+
+                    chBoxok.Add(ujboliLetrehozas);
+                }
+
+                modositasiLista.ItemsSource = chBoxok;
+            }
+        }
     }
 }

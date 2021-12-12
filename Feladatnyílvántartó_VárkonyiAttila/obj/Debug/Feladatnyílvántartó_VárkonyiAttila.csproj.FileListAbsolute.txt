@@ -13,3 +13,5 @@ D:\GitHub\VarkonyiAttila\Feladatnyílvántartó_VárkonyiAttila\obj\Debug\Felada
 D:\GitHub\VarkonyiAttila\Feladatnyílvántartó_VárkonyiAttila\obj\Debug\Feladatnyílvántartó_VárkonyiAttila.csproj.CoreCompileInputs.cache
 D:\GitHub\VarkonyiAttila\Feladatnyílvántartó_VárkonyiAttila\obj\Debug\Feladatnyílvántartó_VárkonyiAttila.exe
 D:\GitHub\VarkonyiAttila\Feladatnyílvántartó_VárkonyiAttila\obj\Debug\Feladatnyílvántartó_VárkonyiAttila.pdb
+D:\GitHub\VarkonyiAttila\Feladatnyílvántartó_VárkonyiAttila\obj\Debug\Window1.g.cs
+D:\GitHub\VarkonyiAttila\Feladatnyílvántartó_VárkonyiAttila\obj\Debug\Window1.baml

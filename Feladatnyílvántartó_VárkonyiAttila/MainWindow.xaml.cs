@@ -26,6 +26,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         public MainWindow()
         {
             InitializeComponent();
+            Betoltes();
         }
 
         private void elemekFrissitese(ListBox listak, List<CheckBox> lElemei)
@@ -61,8 +62,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             }
             else
             { 
-                box.FontStyle = FontStyles.Italic;
-                box.Foreground = Brushes.Gray;
+                box.FontStyle = FontStyles.Normal;
+                box.Foreground = Brushes.Black;
             }
 
             elemekFrissitese(fLista, ujChboxok);
@@ -103,8 +104,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 return;
 
             CheckBox visszaAllit = (CheckBox)tElemek.SelectedItem;
-            toroltekListaja.Remove(visszaAllit);
             ujChboxok.Add(visszaAllit);
+            toroltekListaja.Remove(visszaAllit);
 
             elemekFrissitese(fLista, ujChboxok);
             elemekFrissitese(tElemek, toroltekListaja);
