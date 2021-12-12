@@ -125,6 +125,15 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         {
             string[] Feladatok = new string[fLista.Items.Count];
             string[] toroltFeladatok = new string[tElemek.Items.Count];
+
+            for (int i = 0; i < Feladatok.Length; i++)
+            {
+                CheckBox box = (CheckBox)fLista.Items[i];
+                Feladatok[i] = box.Content.ToString() + ";" + box.IsChecked;
+            }
+
+            File.WriteAllLines("Feladatok.txt", Feladatok);
+            
         }
     }
 }
