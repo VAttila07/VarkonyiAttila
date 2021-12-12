@@ -27,10 +27,11 @@ namespace Feladatnyílvántartó_VárkonyiAttila
         public MainWindow()
         {
             InitializeComponent();
+            Application.Current.Exit += new ExitEventHandler(BezarEsElment);
             Betoltes();
         }
 
-        private void elemekFrissitese(ListBox listak, List<CheckBox> lElemei)
+        public void elemekFrissitese(ListBox listak, List<CheckBox> lElemei)
         {
             listak.ItemsSource = lElemei;
             listak.Items.Refresh();
@@ -105,6 +106,17 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             toroltekListaja.Add(töröltListaElem);
             ujChboxok.Remove(töröltListaElem);
 
+            string[] Feladatok = new string[fLista.Items.Count];
+            string[] toroltFeladatok = new string[tElemek.Items.Count];
+
+            for (int i = 0; i < Feladatok.Length; i++)
+            {
+                CheckBox box = (CheckBox)fLista.Items[i];
+                Feladatok[i] = box.Content.ToString() + ";" + box.IsChecked;
+            }
+
+            File.WriteAllLines("Feladatok.txt", Feladatok);
+
             elemekFrissitese(fLista, ujChboxok);
             elemekFrissitese(tElemek, toroltekListaja);
         }
@@ -117,6 +129,17 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             CheckBox visszaAllit = (CheckBox)tElemek.SelectedItem;
             ujChboxok.Add(visszaAllit);
             toroltekListaja.Remove(visszaAllit);
+
+            string[] Feladatok = new string[fLista.Items.Count];
+            string[] toroltFeladatok = new string[tElemek.Items.Count];
+
+            for (int i = 0; i < Feladatok.Length; i++)
+            {
+                CheckBox box = (CheckBox)fLista.Items[i];
+                Feladatok[i] = box.Content.ToString() + ";" + box.IsChecked;
+            }
+
+            File.WriteAllLines("Feladatok.txt", Feladatok);
 
             elemekFrissitese(fLista, ujChboxok);
             elemekFrissitese(tElemek, toroltekListaja);
@@ -156,7 +179,7 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
         }
 
-        private void Betoltes()
+        public void Betoltes()
         {
             if (!File.Exists("Feladatok.txt."))
                 return;
@@ -183,8 +206,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 }
                 else
                 {
-                    ujboliLetrehozas.FontStyle = FontStyles.Italic;
-                    ujboliLetrehozas.Foreground = Brushes.Gray;
+                    ujboliLetrehozas.FontStyle = FontStyles.Normal;
+                    ujboliLetrehozas.Foreground = Brushes.Black;
                 }
 
                 chBoxok.Add(ujboliLetrehozas);
@@ -220,8 +243,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 }
                 else
                 {
-                    toroltUj.FontStyle = FontStyles.Italic;
-                    toroltUj.Foreground = Brushes.Gray;
+                    toroltUj.FontStyle = FontStyles.Normal;
+                    toroltUj.Foreground = Brushes.Black;
                 }
 
                 toroltChBoxok.Add(toroltUj);
@@ -233,5 +256,45 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             elemekFrissitese(fLista, ujChboxok);
             elemekFrissitese(tElemek, toroltekListaja);
         }
+
+        public void Betoltes2()
+        {
+            if (!File.Exists("Feladatok.txt."))
+                return;
+            string[] Feladatok = File.ReadAllLines("Feladatok.txt");
+            List<CheckBox> chBoxok = new List<CheckBox>();
+
+            for (int i = 0; i < Feladatok.Length; i++)
+            {
+                string[] nev = Feladatok[i].Split(';');
+                CheckBox ujboliLetrehozas = new CheckBox();
+
+                ujboliLetrehozas.Content = nev[0];
+                if (nev[1] == "True")
+                {
+                    ujboliLetrehozas.IsChecked = true;
+                }
+                ujboliLetrehozas.Checked += new RoutedEventHandler(bePipalt);
+                ujboliLetrehozas.Unchecked += new RoutedEventHandler(bePipalt);
+
+                if (ujboliLetrehozas.IsChecked == true)
+                {
+                    ujboliLetrehozas.FontStyle = FontStyles.Italic;
+                    ujboliLetrehozas.Foreground = Brushes.Gray;
+                }
+                else
+                {
+                    ujboliLetrehozas.FontStyle = FontStyles.Normal;
+                    ujboliLetrehozas.Foreground = Brushes.Black;
+                }
+
+                chBoxok.Add(ujboliLetrehozas);
+                ujChboxok.Add(ujboliLetrehozas);
+            }
+
+            fLista.ItemsSource = chBoxok;
+            elemekFrissitese(fLista, ujChboxok);
+        }
+
     }
 }
