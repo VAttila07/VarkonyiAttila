@@ -143,5 +143,45 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             File.WriteAllLines("töröltFeladatok.txt", toroltFeladatok);
 
         }
+
+        private void Betoltes()
+        {
+            if (!File.Exists("Feladatok.txt."))
+                return;
+            string[] Feladatok = File.ReadAllLines("Feladatok.txt");
+            List<CheckBox> chBoxok = new List<CheckBox>();
+
+            for (int i = 0; i < Feladatok.Length; i++)
+            {
+                string[] nev = Feladatok[i].Split(';');
+                CheckBox ujboliLetrehozas = new CheckBox();
+
+                ujboliLetrehozas.Content = nev[i];
+                if(nev[1] == "True")
+                {
+                    ujboliLetrehozas.IsChecked = true;
+                }
+                ujboliLetrehozas.Checked += new RoutedEventHandler(bePipalt);
+                ujboliLetrehozas.Unchecked += new RoutedEventHandler(bePipalt);
+
+                if (ujboliLetrehozas.IsChecked == true)
+                {
+                    ujboliLetrehozas.FontStyle = FontStyles.Italic;
+                    ujboliLetrehozas.Foreground = Brushes.Gray;
+                }
+                else
+                {
+                    ujboliLetrehozas.FontStyle = FontStyles.Italic;
+                    ujboliLetrehozas.Foreground = Brushes.Gray;
+                }
+
+                chBoxok.Add(ujboliLetrehozas);
+                ujChboxok.Add(ujboliLetrehozas);
+
+                elemekFrissitese(fLista, ujChboxok);
+            }
+            fLista.ItemsSource = chBoxok;
+        }
+
     }
 }
