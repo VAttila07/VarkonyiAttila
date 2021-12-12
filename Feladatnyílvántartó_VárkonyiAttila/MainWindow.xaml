@@ -14,7 +14,7 @@
         <Button Content="Új hozzáadása" HorizontalAlignment="Left" Margin="412,64,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="Button_Click"/>
         <Button Content="Módosítás" HorizontalAlignment="Left" Margin="412,93,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
         <Button Content="Kijelölt feladat törlése" HorizontalAlignment="Left" Margin="412,122,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="torles"/>
-        <Button Content="Kijelölt feladat visszaállítása" HorizontalAlignment="Left" Margin="412,260,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
+        <Button Content="Kijelölt feladat visszaállítása" HorizontalAlignment="Left" Margin="412,260,0,0" VerticalAlignment="Top" Width="170" Height="24" Click="vissszaAll"/>
         <Button Content="Kijelölt feladat végleg törlése" HorizontalAlignment="Left" Margin="412,289,0,0" VerticalAlignment="Top" Width="170" Height="24"/>
         <Label Content="Törölt elemek" HorizontalAlignment="Left" Margin="10,234,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="tElemek"  HorizontalAlignment="Left" Height="149" Margin="10,260,0,0" VerticalAlignment="Top" Width="397"/>

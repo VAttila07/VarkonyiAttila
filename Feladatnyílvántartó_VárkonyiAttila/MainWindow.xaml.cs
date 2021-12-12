@@ -102,11 +102,22 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             if (fLista.SelectedItem == null)
                 return;
 
-            CheckBox visszaAllit = (CheckBox)fLista.SelectedItem;
+            CheckBox visszaAllit = (CheckBox)tElemek.SelectedItem;
             toroltekListaja.Remove(visszaAllit);
             ujChboxok.Add(visszaAllit);
 
             elemekFrissitese(fLista, ujChboxok);
+            elemekFrissitese(tElemek, toroltekListaja);
+        }
+
+        private void veglegT(object sender, RoutedEventArgs e)
+        {
+            if (fLista.SelectedItem == null)
+                return;
+
+            CheckBox veglegTorol = (CheckBox)tElemek.SelectedItem;
+            toroltekListaja.Remove(veglegTorol);
+
             elemekFrissitese(tElemek, toroltekListaja);
         }
     }
