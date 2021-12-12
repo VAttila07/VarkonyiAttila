@@ -44,6 +44,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
                 chGeneral.Checked += new RoutedEventHandler(bePipalt);
                 chGeneral.Unchecked += new RoutedEventHandler(bePipalt);
             }
+            else
+                return;
 
             elemekFrissitese(fLista, ujChboxok);
         }
@@ -64,6 +66,18 @@ namespace Feladatnyílvántartó_VárkonyiAttila
             }
 
             elemekFrissitese(fLista, ujChboxok);
+        }
+
+        private void fModositasa(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new Window1();
+            newWindow.Show();
+
+        }
+
+        private void kijelolesValtozott(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
