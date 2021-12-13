@@ -258,10 +258,11 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
         public void Betoltes2()
         {
+            Application.Current.MainWindow.Hide();
             MainWindow newWindow = new MainWindow();
             Application.Current.MainWindow = newWindow;
             newWindow.Show();
-            this.Close();
-        }
+            
+       }
     }
 }
