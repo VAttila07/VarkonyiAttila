@@ -177,6 +177,8 @@ namespace Feladatnyílvántartó_VárkonyiAttila
 
             File.WriteAllLines("töröltFeladatok.txt", toroltFeladatok);
 
+            Environment.Exit(1);
+
         }
 
         public void Betoltes()
